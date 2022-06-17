@@ -2,6 +2,7 @@
 import os
 import random
 from flask import Flask,jsonify
+from flask_cors import cross_origin
 import nltk
 nltk.download("wordnet")
 nltk.download('omw-1.4')
@@ -10,6 +11,7 @@ from nltk.corpus import wordnet
 app = Flask(__name__)
 
 @app.get('/synonyms/<string:word>/')
+@cross_origin() 
 def generate_synonyms(word):
     synonyms = []
     result = set()
@@ -24,15 +26,17 @@ def generate_synonyms(word):
                     
 
 @app.route('/tlds/<string:words>/')
+@cross_origin() 
 def generate_tlds(words):
     result=[]
-    str2 = ['.com',  '.net', '.org', '.Whois Privacy']
+    str2 = ['.com', '.in', '.co', '.net', '.org', '.co', '.info', '.me', '.website', '.tech','.host', '.cricket']
     for i in random.sample(str2,4):
         strres=words+i
         result.append(strres)
     return jsonify(result)
 
 @app.route('/prepend/<string:words>/')
+@cross_origin() 
 def generate_prepended_strings(words):
     result=[]
     str2 = ['ve', 'bright', 'toffee', 'code', 'community', 'dev', 'eat', 'drink', 'repeat']
@@ -43,6 +47,7 @@ def generate_prepended_strings(words):
 
 
 @app.route('/append/<string:words>/')
+@cross_origin() 
 def generate_appended_strings(words):
     result=[]
     str2 = ['ve', 'bright', 'toffee', 'code', 'community', 'dev', 'eat', 'drink', 'repeat']
@@ -53,6 +58,7 @@ def generate_appended_strings(words):
 
 
 @app.route('/replace/<string:word>/')
+@cors_origin() 
 def generate_replaced_strings(word):
     final =  [char for char in word]
 

@@ -2,7 +2,7 @@
 import os
 import random
 from flask import Flask,jsonify
-from flask_cors import cross_origin
+from flask_cors import CORS
 import nltk
 nltk.download("wordnet")
 nltk.download('omw-1.4')

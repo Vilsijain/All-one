@@ -58,7 +58,7 @@ def generate_appended_strings(words):
 
 
 @app.route('/replace/<string:word>/')
-@cors_origin() 
+@corss_origin() 
 def generate_replaced_strings(word):
     final =  [char for char in word]
 

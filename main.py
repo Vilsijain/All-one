@@ -1,9 +1,9 @@
 #AI powerd word suggestion
 import os
+import nltk
 import random
 from flask import Flask,jsonify
 from flask_cors import cross_origin
-import nltk
 nltk.download("wordnet")
 nltk.download('omw-1.4')
 from nltk.corpus import wordnet

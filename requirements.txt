@@ -11,4 +11,4 @@ regex==2022.4.24
 tqdm==4.64.0
 Werkzeug==2.1.2
 zipp==3.8.0
-flask_cors==1.10.3
+flask_cors
